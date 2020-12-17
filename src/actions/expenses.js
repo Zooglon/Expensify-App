@@ -41,6 +41,20 @@ export const removeExpense = ({ id } = {}) => ({
   id
 });
 
+export const startRemoveExpense = ({ id } = {}) => {
+  return (dispatch) => {
+  return database.ref(`expenses/${id}`).remove().then((ref) => {
+    dispatch(removeExpense({
+      id
+    }));
+  });
+ };
+};
+
+// link to database, use set to remove. - look at firebase file.
+
+
+
 // EDIT_EXPENSE
 export const editExpense = (id, updates) => ({
   type: 'EDIT_EXPENSE',

@@ -12,7 +12,9 @@ const firebaseConfig = {
   };
 
 firebase.initializeApp(firebaseConfig);
-
+// allows access to firebase database
 const database = firebase.database();
+// allows authentication using google via firebase
+const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
 
-export { firebase, database as default };
+export { firebase, googleAuthProvider, database as default };
